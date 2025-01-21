@@ -1,5 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
+
   images: {
     // domains: ['avatars.githubusercontent.com'],
     remotePatterns: [
@@ -7,6 +18,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.githubusercontent.com",
       },
+      { protocol: "https", hostname: "cdn.worldota.net" },
     ],
   },
   rewrites: () => {
