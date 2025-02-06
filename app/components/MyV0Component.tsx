@@ -1,11 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 const workoutSchedule = [
   { day: "Monday", time: "6:30 AM - 7:30 AM", workout: "Chest" },
@@ -25,7 +18,7 @@ export default function GymSchedule() {
     "Friday",
     "Saturday",
   ];
-  const currentDay = days[new Date().getDay()];
+  const currentDay = days[new Date().getDay() - 1];
 
   return (
     <div className="w-full h-full max-w-4xl mx-auto overflow-hidden">
