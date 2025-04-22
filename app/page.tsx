@@ -11,9 +11,16 @@ import { getGithubProfile } from "./lib/get-github-profile";
 
 const githubToken = process.env.GITHUB_TOKEN ? process.env.GITHUB_TOKEN : false;
 
+const VERCEL_URL = process.env.VERCEL_URL;
+const VERCEL_BRANCH_URL = process.env.VERCEL_BRANCH_URL;
+
+console.log({ VERCEL_BRANCH_URL, VERCEL_URL });
+
 export default async function Home(url: any) {
   const profileData = await getGithubProfile(yourGithubUsername);
   const geo = url.searchParams;
+
+  console.log({ VERCEL_BRANCH_URL, VERCEL_URL });
 
   if (!profileData) {
     return <EmptyState />;
